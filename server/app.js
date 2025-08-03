@@ -46,6 +46,9 @@ app.use("/", require("./routes/cohort.routes.js"))
 //Auth
 app.use("/auth", require("./routes/auth.routes.js"))
 
+//User
+app.use("/", require("./routes/user.routes.js"))
+
 // START SERVER
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
