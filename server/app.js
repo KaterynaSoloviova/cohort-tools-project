@@ -3,6 +3,9 @@ const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const PORT = 5005;
 
+// Load environment variables
+require("dotenv").config();
+
 
 
 const cors = require("cors");
@@ -39,6 +42,9 @@ app.use("/", require("./routes/student.routes.js"))
 
 //Cohort
 app.use("/", require("./routes/cohort.routes.js"))
+
+//Auth
+app.use("/auth", require("./routes/auth.routes.js"))
 
 // START SERVER
 app.listen(PORT, () => {
