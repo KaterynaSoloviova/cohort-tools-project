@@ -19,7 +19,7 @@ router.post("/api/students", isAuthenticated, (req, res) => {
 })
 
 //GET /api/students
-router.get("/api/students", (req, res) => {
+router.get("/api/students", isAuthenticated, (req, res) => {
     Student.find()
         //.populate("cohort")
         .then(studentsFromDB => res.status(200).json(studentsFromDB))
@@ -30,7 +30,7 @@ router.get("/api/students", (req, res) => {
 });
 
 // GET /api/students/:studentId
-router.get("/api/students/:studentId", (req, res) => {
+router.get("/api/students/:studentId", isAuthenticated, (req, res) => {
 
     let { studentId } = req.params
 
@@ -78,7 +78,7 @@ router.delete("/api/students/:studentId", isAuthenticated, (req, res) => {
 });
 
 // GET /api/students/cohort/:cohortId - Retrieves all of the students for a given cohort
-router.get("/api/students/cohort/:cohortId", (req, res) => {
+router.get("/api/students/cohort/:cohortId", isAuthenticated, (req, res) => {
 
     let { cohortId } = req.params
 

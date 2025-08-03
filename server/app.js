@@ -48,6 +48,7 @@ app.use("/auth", require("./routes/auth.routes.js"))
 
 //User
 app.use("/", require("./routes/user.routes.js"))
+require("./error-handling")(app);
 
 // START SERVER
 app.listen(PORT, () => {

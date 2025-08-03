@@ -20,7 +20,7 @@ router.post("/api/cohorts", isAuthenticated, (req, res) => {
 
 
 //GET /api/cohorts - Retrieves all of the cohorts in the database collection
-router.get("/api/cohorts", (req, res) => {
+router.get("/api/cohorts", isAuthenticated, (req, res) => {
   Cohort.find()
     .then(cohortsFromDB => res.status(200).json(cohortsFromDB))
     .catch((error) => {
@@ -30,7 +30,7 @@ router.get("/api/cohorts", (req, res) => {
 });
 
 //GET /api/cohorts/:cohortId - Retrieves a specific cohort by id
-router.get("/api/cohorts/:cohortId", (req, res) => {
+router.get("/api/cohorts/:cohortId", isAuthenticated, (req, res) => {
 
   let { cohortId } = req.params
 
